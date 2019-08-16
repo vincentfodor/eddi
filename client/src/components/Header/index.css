@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    margin: 0 0 3.33em 0;
+}
+
+.header-logo {
+    height: 65px;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    list-style-type: none;
+}
+
+.nav-item {
+    margin: 0 0 0 1.66em;
+}
+
+.nav-item-link {
+    color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    font-size: 14pt;
+}
+
+.nav-item-link--state-active {
+    color: #1A66B2;
+}

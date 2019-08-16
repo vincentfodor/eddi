@@ -12,10 +12,14 @@ html, body {
   box-sizing: border-box;
 }
 
-h1 {
-  margin: 0;
-  padding: 3em;
-  background-color: rgba(0, 0, 0, 0.85);
-  text-align: center;
-  color: rgb(255, 255, 255);
+.app {
+  width: 1024px;
+  margin: 40px auto 0 auto;
+}
+
+.headline {
+  font-size: 26pt;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 0 0 1.33em 0;
+  text-transform: uppercase;
 }

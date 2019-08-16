@@ -1,0 +1,21 @@
+.navigation-indicator {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.navigation-indicator-item {
+    margin: 0 0.33em 0 0;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.35);
+}
+
+.navigation-indicator-item::after {
+    content: '▸';
+    margin: 0 0 0 0.33em;
+}
+
+.navigation-indicator-item:last-child::after {
+    content: '';
+}

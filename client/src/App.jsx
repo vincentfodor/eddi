@@ -1,15 +1,41 @@
 import React, { Component } from 'react';
+import { 
+  HashRouter, 
+  Route, 
+  Link,
+  Switch
+} from 'react-router-dom';
+import { GlobalState } from './GlobalState/GlobalState';
+import reducers from './GlobalState/reducers';
+
+import Header from './components/Header';
+import Home from './components/Home';
+import Help from './components/Help';
+import NavigationIndicator from './components/NavigationIndicator';
 
 import './App.css';
+
+const initialState = {
+  currentNavigationPath: [
+    'Startseite'
+  ]
+}
 
 class App extends Component {
   render() {
     return (
-      <div className="app">
-        <h1>
-          <marquee scrollamount="50">React Site</marquee>
-        </h1>
-      </div>
+      <HashRouter>
+        <GlobalState initialState={initialState} reducers={reducers} >
+          <div className="app">
+            <Header />
+            <NavigationIndicator />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/help" component={Help} />
+            </Switch>
+          </div>
+        </GlobalState>
+      </HashRouter>
     )
   }
 }
