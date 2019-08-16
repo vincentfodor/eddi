@@ -1,0 +1,5 @@
+.shoppinglist {
+    display: grid;
+    grid-template-columns: 225px 225px 225px 225px;
+    justify-content: space-between;
+}

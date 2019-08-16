@@ -1,0 +1,93 @@
+.shoppinglist-item {
+    display: flex;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.08);
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0 0 2.33em 0;
+}
+
+.shoppinglist-item-top {
+    height: 7px;
+    background-color: #1A66B2;
+}
+
+.content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 40px 0 60px 0;
+    align-items: center;
+}
+
+.label {
+    font-size: 14pt;
+    color: rgba(0, 0, 0, 0.9);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 0.33em 0;
+}
+
+.date {
+    font-size: 12pt;
+    margin: 0;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.cost {
+    display: flex;
+    padding: 5px 30px;
+}
+
+.cost-label {
+    font-size: 12pt;
+    color: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+}
+
+.cost-value {
+    text-align: right;
+    flex-grow: 1;
+    font-size: 12pt;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.head {
+    display: flex;
+    padding: 15px 30px;
+    align-items: center;
+}
+
+.head-indicator {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #1A66B2;
+}
+
+.head-finish-button {
+    background-color: transparent;
+    border: none;
+    font-size: 16pt;
+    margin: 0 0 0 auto;
+    padding: 0;
+    cursor: pointer;
+}
+
+.head-finish-button:hover {
+    color: #1A66B2;
+}
+
+.shoppinglist-item--state-done .shoppinglist-item-top,
+.shoppinglist-item--state-done .head-indicator {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.shoppinglist-item--state-done .cost-label,
+.shoppinglist-item--state-done .cost-value,
+.shoppinglist-item--state-done .label,
+.shoppinglist-item--state-done .head-finish-button,
+.shoppinglist-item--state-done .date {
+    color: rgba(0, 0, 0, 0.2);
+}

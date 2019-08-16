@@ -24,8 +24,7 @@ const Header = () => {
                                 payload: {
                                     currentNavigationPath: [
                                         'Startseite',
-                                        'Meine Einkaufszettel',
-                                        'Wocheneinkauf'
+                                        'Meine Einkaufszettel'
                                     ]
                                 }
                             });
