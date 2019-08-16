@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './index.css';
 
-const ShoppingListItem = ({done, title, date, cost}) => {
+const ShoppingListItem = ({id, done, title, date, cost, finishShoppingList}) => {
     const renderShoppingListItemClass = done ? 'shoppinglist-item shoppinglist-item--state-done' : 'shoppinglist-item'
 
     return (
@@ -10,7 +10,7 @@ const ShoppingListItem = ({done, title, date, cost}) => {
             <div className="shoppinglist-item-top"></div>
             <div className="head">
                 <div className="head-indicator"></div>
-                <button className="head-finish-button">✓</button>
+                <button className="head-finish-button" onClick={() => finishShoppingList(id)}>✓</button>
             </div>
             <div className="content">
                 <h2 className="label">{ title }</h2>

@@ -73,6 +73,7 @@
     margin: 0 0 0 auto;
     padding: 0;
     cursor: pointer;
+    outline: none;
 }
 
 .head-finish-button:hover {
