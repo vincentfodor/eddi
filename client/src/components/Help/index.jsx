@@ -6,7 +6,7 @@ export default class Help extends Component {
     render() {
         return (
             <div className="home">
-                <h1>Help</h1>
+                <h1 className="headline">Wie funktioniert das System?</h1>
             </div>
         )
     }

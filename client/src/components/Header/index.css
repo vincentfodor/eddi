@@ -45,4 +45,8 @@
     .nav-item {
         margin: 0 0 1em 0;
     }
+
+    .header-logo {
+        margin: 0 auto;
+    }
 }

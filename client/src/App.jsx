@@ -17,7 +17,8 @@ import './App.css';
 
 const initialState = {
   currentNavigationPath: [
-    'Startseite'
+    'Startseite',
+    'Meine Einkaufszettel'
   ]
 }
 

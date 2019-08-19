@@ -1,0 +1,22 @@
+.button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    background-color: #1A66B2;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    opacity: 0.9;
+    outline: none;
+}
+
+.button--align-right {
+    margin: 0 0 0 auto;
+}
+
+.button:hover {
+    opacity: 0.95;
+}
+
+.button:active {
+    opacity: 1;
+}

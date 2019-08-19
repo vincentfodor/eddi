@@ -15,7 +15,7 @@ const ShoppingList = () => {
         },
         {
             id: 2,
-            title: "Geburtstag",
+            title: "Hochzeit",
             date: "11.06.2019",
             cost: 100.41,
             done: false

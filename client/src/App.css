@@ -24,9 +24,24 @@ html, body {
   text-transform: uppercase;
 }
 
+.inline-container {
+  display: flex;
+  align-items: center;
+}
+
 @media only screen and (max-width: 1124px) {
   .app {
     width: 100%;
     padding: 0 50px;
   }
-} 
+}
+
+@media only screen and (max-width: 640px) {
+  .inline-container {
+    flex-direction: column;
+  }
+
+  .button--align-right {
+    margin: 1.66em 0 0 0;
+  }
+}
