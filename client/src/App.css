@@ -24,9 +24,57 @@ html, body {
   text-transform: uppercase;
 }
 
+.headline--type-subheadline {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 18pt;
+}
+
 .inline-container {
   display: flex;
   align-items: center;
+}
+
+.container {
+  display: flex;
+  margin: 0 40px 0 0;
+  flex-grow: 1;
+}
+
+.container--direction-column {
+  flex-direction: column;
+}
+
+.container:last-child {
+  margin: 0;
+}
+
+.container--size-half {
+  width: 50%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 1.33em 0;
+}
+
+.form-label {
+  font-size: 12pt;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 0 0 0.66em 0;
+}
+
+.form-input {
+  font-size: 12pt;
+  padding: 6px 8px;
 }
 
 @media only screen and (max-width: 1124px) {

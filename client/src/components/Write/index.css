@@ -1,0 +1,29 @@
+.write {
+    margin: 0 0 2em 0;
+}
+
+.shoppinglist-preview {
+    display: flex;
+    flex-direction: column;
+}
+
+.shoppinglist-preview-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.shoppinglist-preview-item-name {
+    font-size: 12pt;
+    color: rgba(0, 0, 0, 0.9);
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.shoppinglist-preview-item-price {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.9);
+    padding: 16px;
+    margin: 0;
+}

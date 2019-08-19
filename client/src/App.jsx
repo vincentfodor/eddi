@@ -12,6 +12,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Help from './components/Help';
 import NavigationIndicator from './components/NavigationIndicator';
+import Write from './components/Write';
 
 import './App.css';
 
@@ -33,6 +34,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/help" component={Help} />
+              <Route path="/write" component={Write} />
             </Switch>
           </div>
         </GlobalState>

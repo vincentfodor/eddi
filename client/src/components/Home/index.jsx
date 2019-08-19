@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './index.css';
 
@@ -13,7 +14,9 @@ export default class Home extends Component {
             <div className="home">
                     <h1 className="headline inline-container">
                         Meine Einkaufszettel
-                        <Button align="end" clickFunction={() => this.myFunction()}>Einkaufszettel schreiben</Button>
+                        <Button to="/write" align="right">
+                            <Link to="/write">Einkaufszettel schreiben</Link>
+                        </Button>
                     </h1>
                 <ShoppingList />
             </div>
