@@ -95,8 +95,12 @@ html, body {
 }
 
 @media only screen and (max-width: 640px) {
-  .inline-container {
+  .headline-container {
     flex-direction: column;
+  }
+
+  .headline-container-buttons {
+    margin: 0.66em 0 0 0;
   }
 
   .button--align-right {
