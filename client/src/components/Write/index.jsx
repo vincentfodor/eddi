@@ -43,7 +43,7 @@ const Write = () => {
         }
     }
 
-    const renderShoppingList = shoppingList.map(item => (
+    const renderShoppingList = shoppingList.reverse().map(item => (
         <div className="shoppinglist-preview-item" key={item.id}>
             <p className="shoppinglist-preview-item-name">{ item.name }</p>
             <p className="shoppinglist-preview-item-price">{ item.price }€</p>

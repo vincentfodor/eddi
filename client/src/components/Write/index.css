@@ -14,6 +14,9 @@
     background-color: rgba(0, 0, 0, 0.02);
     border-radius: 3px;
     overflow: hidden;
+    animation-name: shoppingListItemAnimation;
+    animation-duration: 100ms;
+    animation-timing-function: ease-in-out;
 }
 
 .shoppinglist-preview-item-name {
@@ -29,4 +32,16 @@
     color: rgba(0, 0, 0, 0.9);
     padding: 16px;
     margin: 0;
+}
+
+@keyframes shoppingListItemAnimation {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 100%;
+        opacity: 1;
+    }
 }
