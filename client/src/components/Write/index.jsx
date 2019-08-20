@@ -4,7 +4,11 @@ import Button from '../Button';
 
 import './index.css';
 
-const Write = () => {
+const Write = ({
+    updateMode,
+    listTitle,
+    listItems
+}) => {
     const [state, dispatch] = useStateValue();
 
     useEffect(() => {
@@ -19,8 +23,8 @@ const Write = () => {
         })
     }, []);
 
-    const [shoppingListTitle, changeShoppingListTitle] = useState(null);
-    const [shoppingList, changeShoppingList] = useState([]);
+    const [shoppingListTitle, changeShoppingListTitle] = useState(listTitle || null);
+    const [shoppingList, changeShoppingList] = useState(listItems || []);
 
     const updateShoppingListTitle = e => changeShoppingListTitle(e.target.value);
 
@@ -35,7 +39,8 @@ const Write = () => {
                 {
                     id: shoppingList.length + 1,
                     name: value,
-                    price: 5.99
+                    price: 5.99,
+                    done: false
                 }
             ]);
 
@@ -43,8 +48,23 @@ const Write = () => {
         }
     }
 
-    const renderShoppingList = shoppingList.reverse().map(item => (
-        <div className="shoppinglist-preview-item" key={item.id}>
+    const markShoppingListItemAsDone = itemid => {
+        const updatedItem = shoppingList.filter(item => item.id === itemid)[0];
+        const shoppingListWithUpdateExcluded = shoppingList.filter(item => item.id !== itemid);
+
+        updatedItem.done = !updatedItem.done;
+
+        changeShoppingList([
+            ...shoppingListWithUpdateExcluded,
+            updatedItem
+        ]);
+    }
+
+    const renderShoppingList = shoppingList.sort((a, b) => a.id - b.id).reverse().map(item => (
+        <div 
+            className={item.done ? "shoppinglist-preview-item shoppinglist-preview-item--done-true" : "shoppinglist-preview-item"}
+            key={item.id} 
+            onClick={() => markShoppingListItemAsDone(item.id)}>
             <p className="shoppinglist-preview-item-name">{ item.name }</p>
             <p className="shoppinglist-preview-item-price">{ item.price }€</p>
         </div>
@@ -52,13 +72,17 @@ const Write = () => {
 
     return (
         <div className="write">
-            <h1 className="headline">Einkaufszettel schreiben</h1>
+            {
+                updateMode
+                    ? null
+                    : <h1 className="headline">Einkaufszettel schreiben</h1>
+            }
             <div className="container">
                 <div className="container container--size-half">
                     <form className="form" onSubmit={updateShoppingList}>
                         <div className="form-group">
                             <label htmlFor="title" className="form-label">Titel:</label>
-                            <input className="form-input" type="text" name="title" id="title" onChange={updateShoppingListTitle} />
+                            <input className="form-input" type="text" name="title" id="title" onChange={updateShoppingListTitle} defaultValue={listTitle ? listTitle : null} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="" className="form-label">Was muss ich kaufen?</label>

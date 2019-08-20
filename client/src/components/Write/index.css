@@ -17,6 +17,20 @@
     animation-name: shoppingListItemAnimation;
     animation-duration: 100ms;
     animation-timing-function: ease-in-out;
+    cursor: pointer;
+}
+
+.shoppinglist-preview-item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.shoppinglist-preview-item:active {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.shoppinglist-preview-item--done-true .shoppinglist-preview-item-name,
+.shoppinglist-preview-item--done-true .shoppinglist-preview-item-price {
+    color: rgba(0, 0, 0, 0.3);
 }
 
 .shoppinglist-preview-item-name {

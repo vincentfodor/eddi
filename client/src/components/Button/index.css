@@ -10,12 +10,8 @@
     font-size: 12pt;
 }
 
-.button--align-right {
-    margin: 0 0 0 auto;
-}
-
-.button--align-left {
-    margin: 0 auto 0 0;
+.button--variant-warning {
+    background-color: rgb(233, 58, 58);
 }
 
 .button:hover {

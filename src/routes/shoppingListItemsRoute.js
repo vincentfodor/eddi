@@ -48,7 +48,7 @@ Router.get('/item/:itemid', (req, res, next) => {
     
     const item = shoppinglist.filter(item => item.id === itemid);
 
-    res.json(item);
+    res.json(item[0]);
 });
 
 export default Router;

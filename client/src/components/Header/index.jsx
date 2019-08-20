@@ -35,7 +35,7 @@ const Header = () => {
                 </li>
                 <li className="nav-item">
                     <Link 
-                        to="help"
+                        to="/help"
                         className={(currentTab === 1) ? 'nav-item-link nav-item-link--state-active' : 'nav-item-link'}
                         onClick={() => {
                             setCurrentTab(1);
