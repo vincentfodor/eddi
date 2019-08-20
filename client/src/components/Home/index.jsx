@@ -7,8 +7,6 @@ import ShoppingList from '../ShoppingList';
 import Button from '../Button';
 
 export default class Home extends Component {
-    myFunction = () => alert('test');
-
     render() {
         return (
             <div className="home">
