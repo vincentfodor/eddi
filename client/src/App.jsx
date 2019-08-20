@@ -13,6 +13,7 @@ import Home from './components/Home';
 import Help from './components/Help';
 import NavigationIndicator from './components/NavigationIndicator';
 import Write from './components/Write';
+import Item from './components/Item';
 
 import './App.css';
 
@@ -35,6 +36,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/help" component={Help} />
               <Route path="/write" component={Write} />
+              <Route path="/item/:itemid" component={Item} />
             </Switch>
           </div>
         </GlobalState>

@@ -43,13 +43,6 @@ const ShoppingList = () => {
         },
     ]);
 
-    const finishShoppingList = target => {
-        const targetIndex = items.findIndex(item => item.id === target);
-        let newItems = [...items];
-        newItems[targetIndex].done = true;
-        setItems(newItems);
-    }
-
     const renderShoppingListItems = items.map(item => (
         <ShoppingListItem
             key={item.id}
@@ -57,8 +50,7 @@ const ShoppingList = () => {
             title={item.title}
             date={item.date}
             cost={item.cost}
-            done={item.done}
-            finishShoppingList={finishShoppingList} />
+            done={item.done} />
     ));
 
     return (

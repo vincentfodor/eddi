@@ -1,12 +1,13 @@
 .button {
     padding: 8px 16px;
-    border-radius: 20px;
+    border-radius: 3px;
     border: none;
     background-color: #1A66B2;
     color: rgb(255, 255, 255);
     cursor: pointer;
     opacity: 0.9;
     outline: none;
+    font-size: 12pt;
 }
 
 .button--align-right {

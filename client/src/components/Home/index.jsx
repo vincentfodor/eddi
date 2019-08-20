@@ -12,11 +12,13 @@ export default class Home extends Component {
     render() {
         return (
             <div className="home">
-                    <h1 className="headline inline-container">
+                    <h1 className="headline headline-container">
                         Meine Einkaufszettel
-                        <Button to="/write" align="right">
-                            <Link to="/write">Einkaufszettel schreiben</Link>
-                        </Button>
+                        <div className="headline-container-buttons">
+                            <Button to="/write">
+                                <Link to="/write">Einkaufszettel schreiben</Link>
+                            </Button>
+                        </div>
                     </h1>
                 <ShoppingList />
             </div>

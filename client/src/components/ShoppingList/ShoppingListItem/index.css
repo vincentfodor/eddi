@@ -8,6 +8,14 @@
     margin: 0 0 2.33em 0;
 }
 
+.shoppinglist-item:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.shoppinglist-item:active {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
 .shoppinglist-item-top {
     height: 7px;
     background-color: #1A66B2;
@@ -55,7 +63,7 @@
 
 .head {
     display: flex;
-    padding: 15px 30px;
+    padding: 30px 30px 20px 30px;
     align-items: center;
 }
 
@@ -64,16 +72,6 @@
     width: 8px;
     border-radius: 50%;
     background-color: #1A66B2;
-}
-
-.head-finish-button {
-    background-color: transparent;
-    border: none;
-    font-size: 16pt;
-    margin: 0 0 0 auto;
-    padding: 0;
-    cursor: pointer;
-    outline: none;
 }
 
 .head-finish-button:hover {
@@ -91,4 +89,8 @@
 .shoppinglist-item--state-done .head-finish-button,
 .shoppinglist-item--state-done .date {
     color: rgba(0, 0, 0, 0.2);
+}
+
+.shoppinglist-item-link {
+    text-decoration: none;
 }

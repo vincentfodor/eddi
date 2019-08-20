@@ -2,11 +2,9 @@ import React from 'react';
 
 import './index.css';
 
-const Button = ({children, align, clickFunction}) => {
-    let renderButtonClass = align ? `button button--align-${align}` : 'button';
-
+const Button = ({children, clickFunction}) => {
     return (
-        <button className={renderButtonClass} onClick={() => clickFunction()}>
+        <button className='button' onClick={() => clickFunction()}>
             { children }
         </button>
     )
