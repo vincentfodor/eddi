@@ -43,4 +43,12 @@ Router.get('/', (req, res, next) => {
     res.json(shoppinglist);
 });
 
+Router.get('/item/:itemid', (req, res, next) => {
+    const itemid = parseInt(req.params.itemid);
+    
+    const item = shoppinglist.filter(item => item.id === itemid);
+
+    res.json(item);
+});
+
 export default Router;
