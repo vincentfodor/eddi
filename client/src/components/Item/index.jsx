@@ -26,7 +26,7 @@ const item = ({match}) => {
                         <Button variant="warning">Einkaufszettel wegwerfen</Button>
                     </div>
                 </h1>
-            <h2 className="headline headline--type-subheadline">{ item.date }</h2>
+            <h2 className="headline headline--type-subheadline">Erstellt am { item.date }</h2>
             <Write 
                 updateMode
                 listTitle={item.title}

@@ -74,6 +74,10 @@ html, body {
   margin: 0 0 1.33em 0;
 }
 
+.form-group--direction-row {
+  flex-direction: row;
+}
+
 .form-label {
   font-size: 12pt;
   color: rgba(0, 0, 0, 0.9);

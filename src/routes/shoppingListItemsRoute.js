@@ -43,6 +43,18 @@ Router.get('/', (req, res, next) => {
     res.json(shoppinglist);
 });
 
+Router.post('/', (req, res, next) => {
+    const { list } = req.body;
+    const date = new Date();
+
+    list.id = shoppinglist.length + 1;
+    list.date = `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`;
+
+    shoppinglist.push(list);
+
+    res.end();
+})
+
 Router.get('/item/:itemid', (req, res, next) => {
     const itemid = parseInt(req.params.itemid);
     

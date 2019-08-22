@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useStateValue } from '../../GlobalState/GlobalState';
 import Button from '../Button';
+import config from '../../../config';
 
 import './index.css';
+import axios from 'axios';
 
 const Write = ({
     updateMode,
@@ -60,6 +62,15 @@ const Write = ({
         ]);
     }
 
+    const submitShoppingList = () => {
+        const list = {
+            title: shoppingListTitle,
+            items: shoppingList
+        }
+
+        axios.post(`${config.backendHost}/shoppinglist`, { list });
+    }
+
     const renderShoppingList = shoppingList.sort((a, b) => a.id - b.id).reverse().map(item => (
         <div 
             className={item.done ? "shoppinglist-preview-item shoppinglist-preview-item--done-true" : "shoppinglist-preview-item"}
@@ -88,8 +99,9 @@ const Write = ({
                             <label htmlFor="" className="form-label">Was muss ich kaufen?</label>
                             <input className="form-input" type="text" name="product" />
                         </div>
-                        <div className="form-group">
-                            <Button as="button" type="submit" align="left">Artikel hinzufügen</Button>
+                        <div className="form-group form-group--direction-row">
+                            <Button as="button" type="submit">Artikel hinzufügen</Button>
+                            <Button as="button" type="submit" clickFunction={submitShoppingList}>Einkaufszettel erstellen</Button>
                         </div>
                     </form>
                 </div>
