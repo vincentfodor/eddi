@@ -2,7 +2,7 @@ import express from 'express';
 
 const Router = express.Router();
 
-const shoppinglist = [
+let shoppinglist = [
     {
         id: 1,
         title: 'Wocheneinkauf',
@@ -55,7 +55,15 @@ Router.post('/', (req, res, next) => {
     shoppinglist.push(list);
 
     res.end();
-})
+});
+
+Router.post('/delete', (req, res, next) => {
+    const { itemid } = req.body;
+
+    const updatedList = shoppinglist.filter(item => item.id !== itemid);
+
+    shoppinglist = updatedList;
+});
 
 Router.get('/item/:itemid', (req, res, next) => {
     const itemid = parseInt(req.params.itemid);
