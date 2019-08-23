@@ -3,6 +3,7 @@ import { useStateValue } from '../../GlobalState/GlobalState';
 import Button from '../Button';
 import config from '../../../config';
 import Fingerprint from 'fingerprintjs2';
+import { Redirect } from 'react-router-dom';
 
 import './index.css';
 import axios from 'axios';
@@ -36,6 +37,7 @@ const Write = ({
 
     const [shoppingListTitle, changeShoppingListTitle] = useState(listTitle || null);
     const [shoppingList, changeShoppingList] = useState(listItems || []);
+    const [createAction, setCreateAction] = useState(false);
 
     const updateShoppingListTitle = e => changeShoppingListTitle(e.target.value);
 
@@ -79,6 +81,8 @@ const Write = ({
         }
 
         axios.post(`${config.backendHost}/shoppinglist`, { list });
+
+        setCreateAction(true);
     }
 
     const renderShoppingList = shoppingList.sort((a, b) => a.id - b.id).reverse().map(item => (
@@ -93,6 +97,11 @@ const Write = ({
 
     return (
         <div className="write">
+            {
+                createAction
+                    ? <Redirect to={'/'} />
+                    : null
+            }
             {
                 updateMode
                     ? null
