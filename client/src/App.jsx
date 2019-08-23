@@ -17,12 +17,12 @@ import Item from './components/Item';
 
 import './App.css';
 
-const initialState = {
+let initialState = {
   currentNavigationPath: [
     'Startseite',
     'Meine Einkaufszettel'
-  ]
-}
+  ],
+};
 
 class App extends Component {
   render() {

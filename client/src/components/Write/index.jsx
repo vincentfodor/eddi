@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useStateValue } from '../../GlobalState/GlobalState';
 import Button from '../Button';
 import config from '../../../config';
+import Fingerprint from 'fingerprintjs2';
 
 import './index.css';
 import axios from 'axios';
@@ -12,6 +13,7 @@ const Write = ({
     listItems
 }) => {
     const [state, dispatch] = useStateValue();
+    const [fingerprint, setFingerprint] = useState(null);
 
     useEffect(() => {
         dispatch({
@@ -22,7 +24,14 @@ const Write = ({
                     'Einkaufszettel schreiben'
                 ]
             }
-        })
+        });
+
+        Fingerprint.get(components => {
+            const values = components.map(component => component.value);
+            const digitalFingerprint = Fingerprint.x64hash128(values.join(' '), 31);
+
+            setFingerprint(digitalFingerprint);
+        });
     }, []);
 
     const [shoppingListTitle, changeShoppingListTitle] = useState(listTitle || null);
@@ -65,6 +74,7 @@ const Write = ({
     const submitShoppingList = () => {
         const list = {
             title: shoppingListTitle,
+            fingerprint,
             items: shoppingList
         }
 

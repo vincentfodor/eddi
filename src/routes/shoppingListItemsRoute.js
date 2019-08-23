@@ -40,7 +40,9 @@ const shoppinglist = [
 ]
 
 Router.get('/', (req, res, next) => {
-    res.json(shoppinglist);
+    const selectedShoppingListItems = shoppinglist.filter(list => list.fingerprint !== req.params.fingerprint);
+
+    res.json(selectedShoppingListItems);
 });
 
 Router.post('/', (req, res, next) => {
