@@ -38,17 +38,21 @@ const ShoppingList = () => {
         } else if(!items) {
             return <h2 className="headline headline--type-subheadline">Einkaufslisten werden geladen...</h2>
         } else {
-            return items.map(item => (
+            return (
                 <div className="shoppinglist">
-                    <ShoppingListItem
-                        key={item.id}
-                        id={item.id}
-                        title={item.title}
-                        date={item.date}
-                        cost={getTotalOfShoppingListItem(item)}
-                        done={item.done} />
+                    {
+                        items.map(item => (
+                            <ShoppingListItem
+                                key={item.id}
+                                id={item.id}
+                                title={item.title}
+                                date={item.date}
+                                cost={getTotalOfShoppingListItem(item)}
+                                done={item.done} />
+                        ))
+                    }
                 </div>
-            ))
+            )
         }
     }
 
