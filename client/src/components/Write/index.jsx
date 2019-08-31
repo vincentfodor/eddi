@@ -38,6 +38,8 @@ const Write = ({
     const [shoppingListTitle, changeShoppingListTitle] = useState(listTitle || null);
     const [shoppingList, changeShoppingList] = useState(listItems || []);
     const [createAction, setCreateAction] = useState(false);
+    const [query, setQuery] = useState("");
+    const [suggestions, setSuggestions] = useState([]);
 
     const updateShoppingListTitle = e => changeShoppingListTitle(e.target.value);
 
@@ -93,7 +95,15 @@ const Write = ({
             <p className="shoppinglist-preview-item-name">{ item.name }</p>
             <p className="shoppinglist-preview-item-price">{ item.price }€</p>
         </div>
-    ))
+    ));
+
+    const askServerForSuggestion = e => {
+        const { value } = e.target;
+        setQuery(value);
+        axios.get(`${config.backendHost}/products`).then(({data}) => {
+            setSuggestions(data);
+        });
+    }
 
     return (
         <div className="write">
@@ -116,10 +126,19 @@ const Write = ({
                         </div>
                         <div className="form-group">
                             <label htmlFor="" className="form-label">Was muss ich kaufen?</label>
-                            <input className="form-input" type="text" name="product" />
+                            <input className="form-input" type="text" name="product" onKeyDown={askServerForSuggestion} autoComplete="off" />
+                            {
+                                (query && query !== "")
+                                    ? (suggestions !== [])
+                                        ? <ul className="form-suggestion">
+                                            <li className="form-suggestion-item">{ suggestions[0].name }</li>
+                                        </ul>
+                                        : null
+                                    : null
+                            }
                         </div>
                         <div className="form-group form-group--direction-row">
-                            <Button as="button" type="submit">Artikel hinzufügen</Button>
+                            <Button as="button" type="submit" clickFunction={() => true}>Artikel hinzufügen</Button>
                             <Button as="button" type="submit" clickFunction={submitShoppingList}>Einkaufszettel erstellen</Button>
                         </div>
                     </form>
