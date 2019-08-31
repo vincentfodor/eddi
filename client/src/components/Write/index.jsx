@@ -38,8 +38,7 @@ const Write = ({
     const [shoppingListTitle, changeShoppingListTitle] = useState(listTitle || null);
     const [shoppingList, changeShoppingList] = useState(listItems || []);
     const [createAction, setCreateAction] = useState(false);
-    const [query, setQuery] = useState("");
-    const [suggestions, setSuggestions] = useState([]);
+    const [suggestions, setSuggestions] = useState(false);
 
     const updateShoppingListTitle = e => changeShoppingListTitle(e.target.value);
 
@@ -61,6 +60,13 @@ const Write = ({
 
             e.target.product.value = null;
         }
+    }
+
+    const addItemToShoppingList = item => {
+        changeShoppingList([
+            ...shoppingList,
+            item
+        ])
     }
 
     const markShoppingListItemAsDone = itemid => {
@@ -99,9 +105,8 @@ const Write = ({
 
     const askServerForSuggestion = e => {
         const { value } = e.target;
-        setQuery(value);
-        axios.get(`${config.backendHost}/products`).then(({data}) => {
-            setSuggestions(data);
+        axios.get(`${config.backendHost}/products?search=${value}`).then(({data}) => {
+            setSuggestions(data.products);
         });
     }
 
@@ -128,18 +133,33 @@ const Write = ({
                             <label htmlFor="" className="form-label">Was muss ich kaufen?</label>
                             <input className="form-input" type="text" name="product" onKeyDown={askServerForSuggestion} autoComplete="off" />
                             {
-                                (query && query !== "")
-                                    ? (suggestions !== [])
-                                        ? <ul className="form-suggestion">
-                                            <li className="form-suggestion-item">{ suggestions[0].name }</li>
-                                        </ul>
-                                        : null
+                                (suggestions && suggestions.length !== 0)
+                                    ? <ul className="form-suggestion">
+                                        {
+                                            suggestions.map(suggestion => (
+                                                <li 
+                                                    className="form-suggestion-item"
+                                                    onClick={() => addItemToShoppingList({
+                                                        id: shoppingList.length + 1,
+                                                        name: suggestion.name,
+                                                        price: suggestion.price,
+                                                        done: false
+                                                    })}>
+                                                        {suggestion.name} ({suggestion.price ? `${suggestion.price}€` : '?'})
+                                                </li>
+                                            ))
+                                        }
+                                    </ul>
                                     : null
                             }
                         </div>
                         <div className="form-group form-group--direction-row">
                             <Button as="button" type="submit" clickFunction={() => true}>Artikel hinzufügen</Button>
-                            <Button as="button" type="submit" clickFunction={submitShoppingList}>Einkaufszettel erstellen</Button>
+                            {
+                                !updateMode
+                                    ? <Button as="button" type="submit" clickFunction={submitShoppingList}>Einkaufszettel erstellen</Button>
+                                    : null
+                            }
                         </div>
                     </form>
                 </div>
